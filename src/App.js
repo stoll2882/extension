@@ -1,5 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import { login, register, loadUser } from './actions/auth';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 function App() {
   return (
@@ -22,4 +26,14 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, {
+  login,
+  register,
+  loadUser,
+  setAlert,
+})(App);
