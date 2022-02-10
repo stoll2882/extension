@@ -59,7 +59,7 @@ function App({login, logout, isAuthenticated, auth: { user }}) {
           <h1>MyRead Curated Blog</h1>
       </Navbar>
 
-      { !isAuthenticated && user.firstName ? 
+      { !isAuthenticated ? 
       <h2>Curate a new post - while you're browsing!</h2>
       :
       <h2>Welcome... Curate a new post now!</h2>}
