@@ -14,27 +14,6 @@ import {
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
 
-function getDevPrefix() { 
-  var devPrefix = "http://localhost:5000";
-
-  if(process === undefined) {
-    console.log(">>> Process doesnt exist, dev mode activated");
-    return devPrefix;
-  } else if(process.env.NODE_ENV == null) {
-    console.log(">>> NODE_ENV is null, dev mode activated");
-    return devPrefix;
-  } else if(process.env.NODE_ENV === undefined) {
-    console.log(">>> NODE_ENV undefined, dev mode activated");
-    return devPrefix;
-  } else if(process.env.NODE_ENV === "development") {
-    console.log(">>> NODE_ENV is set to development, dev mode activated");
-    return devPrefix;    
-  } else {
-    console.log(">>> No dev mode detected");
-    return "";
-  }
-}
-
 // Load User
 export const loadUser = () => async (dispatch) => {
     if (localStorage.token) {
@@ -42,7 +21,7 @@ export const loadUser = () => async (dispatch) => {
     }
   
     try {
-      const res = await axios.get('http://localhost:5000/api/auth');
+      const res = await axios.get('https://my-read-08.herokuapp.com/api/auth');
   
       dispatch({
         type: USER_LOADED,
@@ -73,7 +52,7 @@ export const register = (
     var body = JSON.stringify({ firstName, lastName, alias, email, password, phoneNumber, idNum });
   
     try {
-      const res = await axios.post('http://localhost:5000/api/users', body, config);
+      const res = await axios.post('https://my-read-08.herokuapp.com/api/auth', body, config);
   
       dispatch({
         type: REGISTER_SUCCESS,
@@ -106,7 +85,7 @@ export const login = (email, password) => async (dispatch) => {
     };
   
     try {
-      const res = await axios.post('http://localhost:5000/api/auth', body, config);
+      const res = await axios.post('https://my-read-08.herokuapp.com/api/auth', body, config);
       console.log(res);
       dispatch({
         type: LOGIN_SUCCESS,
@@ -134,7 +113,7 @@ export const addCategory = (category) => async (dispatch) => {
     };
 
     try {
-      const res = await axios.put(getDevPrefix() + '/api/users/category', body, config);
+      const res = await axios.put('https://my-read-08.herokuapp.com/api/auth', body, config);
       // const res = await axios.post('/api/auth', body);
       console.log(res);
 
