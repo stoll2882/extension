@@ -2,9 +2,12 @@ import React, {useState, useEffect} from "react";
 import {Container, Form, Button, Navbar} from "react-bootstrap";
 import { connect } from 'react-redux';
 import { login, register, loadUser, logout } from './actions/auth';
+import { addPost } from './actions/post';
 import './App.css';
+import Alert from './Alert';
+import { setAlert } from "./actions/alert";
 
-function App({login, logout, isAuthenticated, auth: { user }}) {
+function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}) {
 
   // const [email, setEmail] = useState()
   // const [password, setPassword] = useState()
@@ -48,18 +51,20 @@ function App({login, logout, isAuthenticated, auth: { user }}) {
 
   const onSubmitPost = async (e) => {
     e.preventDefault();
-    await login(email, password);
+    await addPost(formDataPost);
   };
 
   return (
     <Container className="App" >
+
+      <Alert />
        
       <Navbar className="App-header"> 
           <img src="./wave.png" />
           <h1>MyRead Curated Blog</h1>
       </Navbar>
 
-      { !isAuthenticated && user.firstName ? 
+      { !isAuthenticated && user ? 
       <h2>Curate a new post - while you're browsing!</h2>
       :
       <h2>Welcome... Curate a new post now!</h2>}
@@ -104,14 +109,9 @@ function App({login, logout, isAuthenticated, auth: { user }}) {
           }
         
       </div>
-
-      
-
     </Container>
   );
 }
-
-// export default App
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
@@ -121,4 +121,6 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   login,
   logout,
+  addPost,
+  setAlert,
 })(App);
