@@ -14,6 +14,7 @@
   "browser_action": {
     "default_popup": "index.html",
     "default_title": "MyRead Chrome Extension"
-  }
+  },
+  "content_security_policy": "script-src script-src-elem 'self' 'unsafe-eval' https://apis.google.com/js/api.js; object-src 'self'"
 
 }

@@ -6,6 +6,9 @@ import { addPost } from './actions/post';
 import './App.css';
 import Alert from './Alert';
 import { setAlert } from "./actions/alert";
+//external logins
+import GoogleBtn from './external-logins/GoogleBtn';
+
 
 function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}) {
 
@@ -54,13 +57,20 @@ function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}
     await addPost(formDataPost);
   };
 
+  const handleGoogleSubmit = async (g) => {
+    console.log('inside handleGoogleSubmit');
+    console.log("in app: ", g);
+    // g.preventDefault();
+    await login(g.getEmail(), g.getId());
+  }
+
   return (
     <Container className="App" >
 
       <Alert />
        
       <Navbar className="App-header"> 
-          <img src="./wave.png" />
+          {/* <img src="wave.png" /> */}
           <h1>MyRead Curated Blog</h1>
       </Navbar>
 
@@ -82,6 +92,9 @@ function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}
               <input type="text" id="password" name="password" placeholder="Password" value={password} onChange={(e) => onChangeLogin(e)}/>
     
               <input type="submit"></input>
+
+              <GoogleBtn handleGoogleSubmit={(g) => handleGoogleSubmit(g)} />
+
               </form>)
               :
               (
