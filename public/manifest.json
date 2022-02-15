@@ -7,7 +7,9 @@
    "128": "favicon.ico"
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "identity",
+    "<all_urls>"
   ],
   "manifest_version": 2,
   "version": "0.0.1",
@@ -15,6 +17,13 @@
     "default_popup": "index.html",
     "default_title": "MyRead Chrome Extension"
   },
-  "content_security_policy": "script-src script-src-elem 'self' 'unsafe-eval' https://apis.google.com/js/api.js; object-src 'self'"
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl/+ag/DnpDvDmIR/uePAk1UCBWi2r03wvT5MviLk2KaPUFLsDUg1LK5UggHD8CZDq7OmSWpu09W9UkYNo6RqVZDHOKD1LQ9QEF0SkDw1xYoxNZhRcCTJzzc5PNIJPGk6HFe3YVswzcGFcK9z1CX7qJP6SIf9u8DhJahfkuerROeoaXcWCaTKxtptLC08Rn4hACf/jLj31KrhLamQU2je9xyiKF9k1wNlJA0wDAjuMmZXcYf0QOGjz+p6i7Y6rdLwQ4dEVNDgt+ul5dGHTEKr816UNMN9w1FZbfTMGICSFO5ZEPsxmkqgazNR4B7wxjonFf1WfgqPI9b5zCUR4/haGQIDAQAB",
+  "oauth2": {
+    "client_id": "771291261258-4jei5n9ggecj6u3qtn37u6ct9nalvohh.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/contacts.readonly"
+    ]
+  },
+  "content_security_policy": "script-src 'self' https://apis.google.com/js/api.js; script-src-elem 'self'"
 
 }
