@@ -15,8 +15,7 @@ class GoogleBtn extends Component {
       fname: '',
       lname: '',
       gmail: '',
-      alias: '',
-      // isRegister: false,
+      alias: ''
     };
 
     this.login = this.login.bind(this);

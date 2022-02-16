@@ -9,7 +9,7 @@
   "permissions": [
     "tabs",
     "identity",
-    "<all_urls>"
+    "cookies"
   ],
   "manifest_version": 2,
   "version": "0.0.1",
@@ -24,6 +24,6 @@
       "https://www.googleapis.com/auth/contacts.readonly"
     ]
   },
-  "content_security_policy": "script-src 'self' https://apis.google.com/js/api.js; script-src-elem 'self'"
+  "content_security_policy": "script-src https://apis.google.com/*; script-src-elem 'self' https://*.google.com https://connect.facebook.net/en_US/sdk.js; default-src 'self' 'unsafe-inline' https://apis.google.com/*;"
 
 }

@@ -8,6 +8,8 @@ import Alert from './Alert';
 import { setAlert } from "./actions/alert";
 //external logins
 import GoogleBtn from './external-logins/GoogleBtn';
+// import FacebookLogin from "react-facebook-login";
+import FacebookLoginComponent from "./external-logins/facebooklogin.component";
 
 
 function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}) {
@@ -58,11 +60,22 @@ function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}
   };
 
   const handleGoogleSubmit = async (g) => {
+    await login(g.getEmail(), g.getId());
     console.log('inside handleGoogleSubmit');
     console.log("in app: ", g);
-    // g.preventDefault();
-    await login(g.getEmail(), g.getId());
   }
+
+  const responseFacebook = async (fb) => {
+    console.log(fb);
+    if (fb.status === "unknown") {
+      alert("Facebook authentication failed!");
+      return false;
+    }
+    console.log('FACEBOOK login successful: ', fb)
+    console.log('inside handleFacebookSubmit');
+    console.log('in app: ', fb);
+    await login(fb.email, fb.id);
+  };
 
   return (
     <Container className="App" >
@@ -94,7 +107,8 @@ function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}
               <input type="submit"></input>
 
               <GoogleBtn handleGoogleSubmit={(g) => handleGoogleSubmit(g)} />
-
+              <FacebookLoginComponent responseFacebook={(fb) => responseFacebook(fb)} />
+              
               </form>)
               :
               (
