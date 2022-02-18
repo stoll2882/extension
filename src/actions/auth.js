@@ -127,3 +127,26 @@ export const logout = () => async (dispatch) => {
     type: LOGOUT,
   });
 };
+
+export const uploadPostPicture = (file, postId) => async (dispatch) => {
+  try {
+    console.log("in post upload")
+    console.log(file)
+    var result = await axios.get('https://my-read-08.herokuapp.com/api/postimage/' + postId);
+    console.log(result.data);
+    const response = await fetch(result.data, {
+      method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+      'Cache-Control': 'no-store max-age=0',
+      'Content-Type': file.type,
+      'x-ms-date': new Date().toUTCString(),
+      'x-ms-version': '2020-04-08',
+      'x-ms-blob-type': 'BlockBlob'
+      },
+      body: file, // body data type must match "Content-Type" header
+    });
+    await axios.post('https://my-read-08.herokuapp.com/api/postimage/' + postId);
+  } catch (error) {
+    console.log(error);
+  }
+};

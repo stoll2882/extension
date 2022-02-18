@@ -6,6 +6,8 @@ import { addPost } from './actions/post';
 import './App.css';
 import Alert from './Alert';
 import { setAlert } from "./actions/alert";
+import NewPost from "./NewPost";
+
 //external logins
 import GoogleBtn from './external-logins/GoogleBtn';
 // import FacebookLogin from "react-facebook-login";
@@ -112,26 +114,7 @@ function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}
               </form>)
               :
               (
-              <form
-                className="form"
-                onSubmit={(e) => onSubmitPost(e)}>
-      
-                <label>Title</label>
-                <input type="text" id="title" name="title" placeholder="Enter title of article..." value={title} onChange={(e) => onChangePost(e)} />
-
-                <label>Description</label>
-                <textarea type="text" id="description" name="description" placeholder="Enter article description..." value={description} onChange={(e) => onChangePost(e)}></textarea>
-
-                <label>Article URL</label>
-                <input type="url" id="url" name="url" placeholder="Enter URL here..." value={url} onChange={(e) => onChangePost(e)}></input>
-
-                <label>Category</label>
-                <select id="category" name="category" value={category} onChange={(e) => onChangePost(e)}/>
-            
-                <input type="submit"></input>
-
-                <Button className="rounded-pill" type = "primary" onClick={logout}>Logout</Button>
-              </form>
+              <NewPost />
               )
           }
         
