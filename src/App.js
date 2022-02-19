@@ -108,8 +108,8 @@ function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}
     
               <input type="submit"></input>
 
-              <GoogleBtn handleGoogleSubmit={(g) => handleGoogleSubmit(g)} />
-              <FacebookLoginComponent responseFacebook={(fb) => responseFacebook(fb)} />
+              {/* <GoogleBtn handleGoogleSubmit={(g) => handleGoogleSubmit(g)} />
+              <FacebookLoginComponent responseFacebook={(fb) => responseFacebook(fb)} /> */}
               
               </form>)
               :
