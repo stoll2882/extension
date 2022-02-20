@@ -1,3 +1,4 @@
+/*global chrome*/
 import React, {useState} from "react";
 import {Container, Form, Button, Row, Col} from "react-bootstrap";
 import { addPost } from "./actions/post";
@@ -15,6 +16,7 @@ function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth
     const [selectedOptions, setSelectedOptions] = useState([])
     const [images, setImages] = useState([]);
     const [preview, setPreview] = useState(null);
+    const [pageUrl, setPageUrl] = useState('');
 
     // on submit updateFormData inside useEffect dependent on cahnges from my values
     const findFormErrors = () => {
@@ -118,6 +120,24 @@ function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth
         await setImages([e.target.files[0]])
         setPreview(url);
     }
+
+
+    // get current url of active tab
+    chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+        let url = tabs[0].url;
+        // use `url` here inside the callback because it's asynchronous!
+        console.log("URL: " + url);
+        setPageUrl(url);
+        setFormData({
+            title: '',
+            description: '',
+            url: url,
+            picture: '',
+            category: '',
+            })
+    });
+    
+    
 
     return(
         <>
