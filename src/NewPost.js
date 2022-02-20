@@ -16,7 +16,6 @@ function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth
     const [selectedOptions, setSelectedOptions] = useState([])
     const [images, setImages] = useState([]);
     const [preview, setPreview] = useState(null);
-    const [pageUrl, setPageUrl] = useState('');
 
     // on submit updateFormData inside useEffect dependent on cahnges from my values
     const findFormErrors = () => {
@@ -127,8 +126,6 @@ function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
         let url = tabs[0].url;
         // use `url` here inside the callback because it's asynchronous!
-        console.log("URL: " + url);
-        setPageUrl(url);
         setFormData({
             title: '',
             description: '',
