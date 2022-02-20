@@ -7,7 +7,7 @@ import { addCategory, loadUser, uploadPostPicture } from './actions/auth';
 import validator from 'validator';
 import CreatableSelect from 'react-select/creatable';
 import "./NewPost.css";
-import tempPic from './pexels-jess-loiterton-4784090.jpg' 
+import tempPic from './placeholder-image.jpg' 
 
 function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth: { user }}){
     const [validated, setValidated] = useState(false);
@@ -121,11 +121,7 @@ function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth
     }
 
     return(
-        <>
-        {
-            true ? 
-            <Container>
-                <h2>Create a New Post</h2>
+        <div>
                 <Form>
                 <Form.Group style={{marginTop:"0.5rem"}}>
                     <Form.Label>Title</Form.Label>
@@ -149,23 +145,21 @@ function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth
                         options={options}
                         onChange={handleSelections}
                     />
-                    <Form.Control hidden isInvalid={ !!errors.category }/>
                     <Form.Control.Feedback type="invalid">{errors.category}</Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group>
-                        <Row style={{marginTop:"0.5rem"}}><Form.Label>Upload Picture</Form.Label></Row>
+                        <Row style={{marginTop:"0.5rem", marginLeft:"0.5rem"}}><Form.Label>Upload Picture</Form.Label></Row>
                         <Col>
-                            <img style={{height:"200px", width:"300px", objectFit:"cover", marginBottom:"1rem"}} src = {preview != null? preview : tempPic} />
+                            <img style={{height:"100px", width:"150px", objectFit:"cover", marginBottom:"1rem"}} src = {preview != null? preview : tempPic} />
                         </Col>
                             <input type="file" accept="image/*" onChange={e=> {onImageChange(e)}} />
                     </Form.Group>
-                <Button style={{marginTop:"0.5rem"}} className="rounded-pill" type = "primary" onClick={e => submit(e)}>Save Post</Button>
+                <Button style={{marginTop:"1rem"}} className="rounded-pill" type = "primary" onClick={e => submit(e)}>Save Post</Button>
                 </Form>
-            </Container>
-            :
-            <h1>You must be authenticated to create a new post. Sign up or Login here.</h1>
-        }
-        </>
+                <Row>
+
+                </Row>
+            </div>
     )
 }
 
