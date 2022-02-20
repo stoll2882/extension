@@ -1,17 +1,12 @@
 .App {
   background: whitesmoke;
-  min-width: 300px;
-  max-width: 400px;
-  min-height: 600px;
-  max-height: 850px;
-  
+  width: 350px;
+  height: 650px;
   font-size: 12pt;
-  padding: 20px;
+  padding: 10px;
 }
 
 .App-header {
-  height: 65px;
-  padding-top: 10px;
   font-family: 'Yeseva One', cursive;;
   align-items: center;
   text-align: center;
@@ -21,7 +16,6 @@
 
 h1 {
   font-size: 40pt;
-  float: right;
   color: #303030;
 }
 

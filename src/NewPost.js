@@ -122,6 +122,8 @@ function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth
 
     return(
         <div>
+                <h1 className="my-h1">MyRead</h1>
+                <Row className="text-center">Curate a new post</Row>
                 <Form>
                 <Form.Group style={{marginTop:"0.5rem"}}>
                     <Form.Label>Title</Form.Label>
@@ -149,8 +151,8 @@ function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth
                 </Form.Group>
                 <Form.Group>
                         <Row style={{marginTop:"0.5rem", marginLeft:"0.5rem"}}><Form.Label>Upload Picture</Form.Label></Row>
-                        <Col>
-                            <img style={{height:"100px", width:"150px", objectFit:"cover", marginBottom:"1rem"}} src = {preview != null? preview : tempPic} />
+                        <Col >
+                            <img style={{height:"85px", width:"135px", objectFit:"cover", marginBottom:"1rem"}} src = {preview != null? preview : tempPic} />
                         </Col>
                             <input type="file" accept="image/*" onChange={e=> {onImageChange(e)}} />
                     </Form.Group>

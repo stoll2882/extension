@@ -62,18 +62,16 @@ function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}
     <Container className="App" >
 
       <Alert />
-       
-      <Navbar className="App-header"> 
-          <h1>MyRead</h1>
-      </Navbar>
-
-      { isAuthenticated && user ? 
-      <h2>Curate a new post</h2>
-      :
-      <h2>Log in to blog as you surf</h2>}
-
+      
       <div>
           { !isAuthenticated?
+          <div>
+            <Row style={{marginBottom:"-1rem"}}>
+            <h1 className="App-header">MyRead</h1>
+            </Row>
+            <Row style={{marginBottom:"1rem"}}>
+            <h2>Log in to blog as you surf</h2>
+            </Row>
               <Form onSubmit={(e) => onSubmitLogin(e)}>
                  <Form.Group className="mb-3" controlId="email">
                    <Form.Label>Email address</Form.Label>
@@ -95,10 +93,11 @@ function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}
                 </Row>
                 </Row>
               <PopUp />
-              <Col className="center-block text-center" style={{marginTop:"15rem"}}>
+              <Col className="center-block text-center" style={{marginTop:"10rem"}}>
               <span><img src ={Wave} height={"50px"}></img></span>
               </Col>
               </Form>
+              </div>
               :
               <NewPost /> 
           }
