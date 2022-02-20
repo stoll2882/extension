@@ -1,4 +1,10 @@
-h2{
-  font-family: 'Josefin Sans', sans-serif;
-  margin-top:0.5rem;
+.my-h1 {
+  font-size: 20pt;
+  color: #303030;
+  font-family: 'Yeseva One', cursive;;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
 }

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Container, Form, Button, Navbar} from "react-bootstrap";
+import {Container, Form, Button, Navbar, Row, Col} from "react-bootstrap";
 import { connect } from 'react-redux';
 import { login, register, loadUser, logout } from './actions/auth';
 import { addPost } from './actions/post';
@@ -8,6 +8,7 @@ import Alert from './Alert';
 import { setAlert } from "./actions/alert";
 import NewPost from "./NewPost";
 import PopUp from "./PopUp";
+import Wave from './wave.png';
 
 function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}) {
 
@@ -21,8 +22,12 @@ function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}
     password,
   } = formDataLogin;
 
-  const onChangeLogin = (e) =>
+  const onChangeLogin = (e) => {
+    console.log("changing login")
+    console.log(e.target.name)
     setFormDataLogin({ ...formDataLogin, [e.target.name]: e.target.value });
+  }
+    
 
   const onSubmitLogin = async (e) => {
     e.preventDefault();
@@ -57,44 +62,51 @@ function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}
     <Container className="App" >
 
       <Alert />
-       
-      <Navbar className="App-header"> 
-          {/* <img src="wave.png" /> */}
-          <h1>MyRead Curated Blog</h1>
-      </Navbar>
-
-      { !isAuthenticated && user ? 
-      <h2>Curate a new post - while you're browsing!</h2>
-      :
-      <h2>Welcome... Curate a new post now!</h2>}
-
+      
       <div>
-          { !isAuthenticated ?
-            (<form
-              className="form"
-              onSubmit={(e) => onSubmitLogin(e)}>
-    
-              <label>Email</label>
-              <input type="text" id="email" name="email" placeholder="email..." value={email} onChange={(e) => onChangeLogin(e)}/>
-    
-              <label>Password</label>
-              <input type="text" id="password" name="password" placeholder="Password" value={password} onChange={(e) => onChangeLogin(e)}/>
-    
-              <input type="submit"></input>
-
-              <PopUp />
+          { !isAuthenticated?
+          <div>
+            <Row style={{marginBottom:"-1rem"}}>
+            <h1 className="App-header">MyRead</h1>
+            </Row>
+            <Row style={{marginBottom:"1rem"}}>
+            <h2>Log in to blog as you surf</h2>
+            </Row>
+              <Form onSubmit={(e) => onSubmitLogin(e)}>
+                 <Form.Group className="mb-3" controlId="email">
+                   <Form.Label>Email address</Form.Label>
+                  <Form.Control type="email" placeholder="Enter email" name="email" value={email} onChange={(e) => onChangeLogin(e)}/>
+                 </Form.Group>
               
-              </form>)
+                 <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+              <Form.Control type="password" name="password" placeholder="Password" value={password} onChange={(e) => onChangeLogin(e)}/>
+             </Form.Group>
+              <Button variant="primary" type="submit">
+                Login
+               </Button>
+               <Row className="justify-content-center" style={{borderTop:"1px solid #bebebe", marginTop:"2rem", marginLeft:"0.5rem", marginRight:"0.5rem", paddingTop:"1rem"}}>
+                <Row className="text-center" style={{marginTop:"-1.75rem", }}>
+                    <span style={{padding:"0.5rem", background:"whiteSmoke"}}>
+                    OR
+                    </span>
+                </Row>
+                </Row>
+              <PopUp />
+              <Col className="center-block text-center" style={{marginTop:"10rem"}}>
+              <span><img src ={Wave} height={"50px"}></img></span>
+              </Col>
+              </Form>
+              </div>
               :
-              (
-              <NewPost />
-              )
+              <NewPost /> 
           }
-        
-      </div>
+      </div>  
     </Container>
   );
 }
+
+//
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,

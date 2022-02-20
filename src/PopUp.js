@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import {Button} from "react-bootstrap";
+import "./App.css"
+import Google from "./google.png"
+import Facebook from "./f_logo_RGB-Blue_58.png"
 
 const PopUp = ({ idMessage }) => {
   // create state `open` as false
@@ -15,20 +19,17 @@ const PopUp = ({ idMessage }) => {
   return (
     <>
       {/* click of button toggles `open` value therefore visibility */}
-      <button
-        onClick={() => setOpen(!open)}
-        type="button"
-        className="btn btn-primary"
-        data-toggle="modal"
-        data-target={`#${idMessage}`}
+      <Button
+        onClick={(e) => {openPopupHandler()}}
+        variant="secondary"
+        className="my-outline"
       >
-        {/* {idMessage} */}
         Sign in via Facebook or Google
-      </button>
+      </Button>
       {/* If open is true show your <div /> */}
-      {open && (
+      {/* {open && (
         openPopupHandler()
-      )}
+      )} */}
     </>
   );
 };
