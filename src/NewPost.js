@@ -97,9 +97,11 @@ function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth
             
             setFormData(formData => ({...formData, picture: ""}))
             console.log(images[0])
-            await addPost(validForm).then(res => (
+            await addPost(validForm).then(res => {
+                console.log(res)
                 uploadPostPicture(images[0], res._id)
-            ))
+            })
+
             setFormData({
                 title: '',
                 description: '',

@@ -86,13 +86,13 @@ function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}
        
       <Navbar className="App-header"> 
           {/* <img src="wave.png" /> */}
-          <h1>MyRead Curated Blog</h1>
+          <h1>MyRead</h1>
       </Navbar>
 
       { !isAuthenticated && user ? 
       <h2>Curate a new post - while you're browsing!</h2>
       :
-      <h2>Welcome... Curate a new post now!</h2>}
+      <h2>Log in to blog as you surf.</h2>}
 
       <div>
           { !isAuthenticated ?

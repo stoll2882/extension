@@ -130,7 +130,7 @@ export const logout = () => async (dispatch) => {
 
 export const uploadPostPicture = (file, postId) => async (dispatch) => {
   try {
-    console.log("in post upload")
+    console.log("in post picture upload")
     console.log(file)
     var result = await axios.get('https://my-read-08.herokuapp.com/api/postimage/' + postId);
     console.log(result.data);

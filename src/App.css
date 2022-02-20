@@ -1,20 +1,18 @@
 .App {
-  background: linear-gradient(#386998, #e0eaf3);
-  min-width: 550px;
-  max-width: 750px;
+  background: whitesmoke;
+  min-width: 300px;
+  max-width: 400px;
   min-height: 600px;
   max-height: 850px;
-  text-shadow: 2px 2px 5px #2f5a81;
-  color: #fff;
+  
   font-size: 12pt;
-  font-family: 'Mauren', serif;
   padding: 20px;
 }
 
 .App-header {
   height: 65px;
   padding-top: 10px;
-  font-family: 'Mauren', serif;
+  font-family: 'Yeseva One', cursive;;
   align-items: center;
   text-align: center;
   display: flex;
@@ -24,12 +22,13 @@
 h1 {
   font-size: 40pt;
   float: right;
+  color: #303030;
 }
 
 h2 {
   font-size: 18pt;
   font-family: 'Mauren', serif;
-  color: #fff;
+  color: grey;
   display: block;
   text-align: center;
   justify-content: center;
