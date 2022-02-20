@@ -136,7 +136,6 @@ function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth
     });
     
     
-
     return(
         <div>
                 <h1 className="my-h1">MyRead</h1>
