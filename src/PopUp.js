@@ -9,7 +9,8 @@ const PopUp = ({ idMessage }) => {
   const [open, setOpen] = useState(false);
 
   const openPopupHandler = () => {
-    window.open("https://my-read-08.herokuapp.com/extension-login","mywindow","menubar=1,resizable=1,width=600,height=350");
+    var popupWindow = window.open("https://my-read-08.herokuapp.com/extension-login","mywindow","menubar=1,resizable=1,width=600,height=350");
+    
   }
   
   const closePopupHandler = () => {
@@ -22,14 +23,10 @@ const PopUp = ({ idMessage }) => {
       <Button
         onClick={(e) => {openPopupHandler()}}
         variant="secondary"
-        className="my-outline"
       >
         Sign in via Facebook or Google
       </Button>
-      {/* If open is true show your <div /> */}
-      {/* {open && (
-        openPopupHandler()
-      )} */}
+
     </>
   );
 };
