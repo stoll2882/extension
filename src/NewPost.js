@@ -125,17 +125,13 @@ function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth
 
     // this caused problems for me... someone can un-comment it if it works for you guys
     // get current url of active tab
-    // chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
-    //     let url = tabs[0].url;
-    //     // use `url` here inside the callback because it's asynchronous!
-    //     setFormData({
-    //         title: '',
-    //         description: '',
-    //         url: url,
-    //         picture: '',
-    //         category: '',
-    //         })
-    // });
+    chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+        let url = tabs[0].url;
+        // use `url` here inside the callback because it's asynchronous!
+        setFormData({
+            url: url
+            })
+    });
     
     
     return(

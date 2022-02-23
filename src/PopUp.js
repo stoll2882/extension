@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import {Button} from "react-bootstrap";
 import "./App.css"
-import Google from "./google.png"
-import Facebook from "./f_logo_RGB-Blue_58.png"
 
 const PopUp = ({ idMessage }) => {
   // create state `open` as false
