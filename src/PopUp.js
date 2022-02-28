@@ -1,6 +1,7 @@
+/* global chrome */
 import React, { useState } from "react";
 import {Button} from "react-bootstrap";
-import "./App.css"
+import "./App.css";
 
 const PopUp = ({ idMessage }) => {
   // create state `open` as false
