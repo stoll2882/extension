@@ -9,8 +9,17 @@ import { setAlert } from "./actions/alert";
 import NewPost from "./NewPost";
 import PopUp from "./PopUp";
 import Wave from './wave.png';
+import setAuthToken from './utils/setAuthToken';
 
-function App({addPost, setAlert, login, logout, isAuthenticated, auth: { user }}) {
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
+function App({addPost, loadUser, setAlert, login, logout, isAuthenticated, auth: { user }}) {
+
+  useEffect(() => {
+    loadUser();
+  }, []);
 
   const [formDataLogin, setFormDataLogin] = useState({
     email: '',
@@ -118,4 +127,5 @@ export default connect(mapStateToProps, {
   logout,
   addPost,
   setAlert,
+  loadUser,
 })(App);
