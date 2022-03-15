@@ -1,3 +1,4 @@
+/* global chrome */
 import React, {useState, useEffect} from "react";
 import {Container, Form, Button, Navbar, Row, Col} from "react-bootstrap";
 import { connect } from 'react-redux';
@@ -66,6 +67,16 @@ function App({addPost, loadUser, setAlert, login, logout, isAuthenticated, auth:
     e.preventDefault();
     await addPost(formDataPost);
   };
+
+  // for connecting with MyRead
+  // const [userId, setUser] = useState("");
+  // chrome.runtime.onMessageExternal.addListener(function(request, sender, sendResponse) {
+  //   console.log("hello from extension");
+  //   if (request.messageFromWeb.cliqmark_user) {
+  //     console.log(request.messageFromWeb);
+  //     setUser(request.messageFromWeb.cliqmark_user);
+  //   }
+  // })
 
   return (
     <Container className="App" >
