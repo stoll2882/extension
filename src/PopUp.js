@@ -18,6 +18,7 @@ const PopUp = ({ login }) => {
 
     chrome.runtime.onMessageExternal.addListener(
       function(request, sender, sendResponse) {
+        // if (sender.url !== "https://my-read-08.herokuapp.com/extension-login")
         if (sender.url !== "http://localhost:3000/extension-login")
           return;
         if (request.openUrlInEditor)
