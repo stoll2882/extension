@@ -1,9 +1,12 @@
 /* global chrome */
 import React, { useState } from "react";
 import {Button} from "react-bootstrap";
+import { connect } from "react-redux";
+import {login} from './actions/auth';
+
 import "./App.css";
 
-const PopUp = ({ idMessage }) => {
+const PopUp = ({ login }) => {
   // create state `open` as false
   const [open, setOpen] = useState(false);
   // const [popupWindow, setPopupWindow] = useState();
@@ -19,19 +22,17 @@ const PopUp = ({ idMessage }) => {
           return;
         if (request.openUrlInEditor)
           // openUrl(request.openUrlInEditor);
-          console.log("request: ", request)
+          console.log("request: ", request);
+          // request.preventDefault();
+          login(request.openUrlInEditorEmail, request.openUrlInEditorPword);
       });
 
   }
 
 
-
-  
   const closePopupHandler = () => {
     setOpen(false);
   }
-
-
 
   return (
     <>
@@ -47,4 +48,11 @@ const PopUp = ({ idMessage }) => {
   );
 };
 
-export default PopUp;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, {
+  login,
+})(PopUp);

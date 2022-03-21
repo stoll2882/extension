@@ -68,16 +68,6 @@ function App({addPost, loadUser, setAlert, login, logout, isAuthenticated, auth:
     await addPost(formDataPost);
   };
 
-  // for connecting with MyRead
-  // const [userId, setUser] = useState("");
-  // chrome.runtime.onMessageExternal.addListener(function(request, sender, sendResponse) {
-  //   console.log("hello from extension");
-  //   if (request.messageFromWeb.cliqmark_user) {
-  //     console.log(request.messageFromWeb);
-  //     setUser(request.messageFromWeb.cliqmark_user);
-  //   }
-  // })
-
   return (
     <Container className="App" >
 
@@ -125,8 +115,6 @@ function App({addPost, loadUser, setAlert, login, logout, isAuthenticated, auth:
     </Container>
   );
 }
-
-//
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
