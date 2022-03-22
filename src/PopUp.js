@@ -12,8 +12,8 @@ const PopUp = ({ login }) => {
   // const [popupWindow, setPopupWindow] = useState();
 
   const openPopupHandler = () => {
-    window.open("http://localhost:3000/extension-login","mywindow","menubar=1,resizable=1,width=600,height=350");
-    // window.open("https://myreaddev-ext-logins-duhpcboow.herokuapp.com/extension-login","mywindow","menubar=1,resizable=1,width=600,height=350");
+    // window.open("http://localhost:3000/extension-login","mywindow","menubar=1,resizable=1,width=600,height=350");
+    window.open("https://myreaddev-ext-logins-duhpcboow.herokuapp.com/extension-login","mywindow","menubar=1,resizable=1,width=600,height=350");
     console.log("opened popup");
 
     chrome.runtime.onMessageExternal.addListener(
