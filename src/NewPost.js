@@ -8,9 +8,11 @@ import { addCategory, loadUser, uploadPostPicture } from './actions/auth';
 import validator from 'validator';
 import CreatableSelect from 'react-select/creatable';
 import "./NewPost.css";
-import tempPic from './placeholder-image.jpg' 
+import tempPic from './placeholder-image.jpg';
+import { logout } from './actions/auth';
 
-function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth: { user }}){
+
+function NewPost({addPost, addCategory, logout, uploadPostPicture, auth: { user }}){
     const [validated, setValidated] = useState(false);
     const [errors, setErrors] = useState({})
     const [selectedOptions, setSelectedOptions] = useState([])
@@ -171,6 +173,7 @@ function NewPost({addPost, addCategory, isAuthenticated, uploadPostPicture, auth
                             <input type="file" accept="image/*" onChange={e=> {onImageChange(e)}} />
                     </Form.Group>
                 <Button style={{marginTop:"1rem"}} className="rounded-pill" type = "primary" onClick={e => submit(e)}>Save Post</Button>
+                <Button style={{marginTop:"1rem"}} className="rounded-pill" type = "primary" onClick={e => logout()}>Log Out</Button>
                 </Form>
                 <Row>
 
@@ -192,4 +195,4 @@ const mapStateToProps = (state) => ({
   });
 
 
-export default connect(mapStateToProps,{addPost, addCategory, loadUser, uploadPostPicture})(NewPost);
+export default connect(mapStateToProps,{addPost, addCategory, logout, loadUser, uploadPostPicture})(NewPost);
