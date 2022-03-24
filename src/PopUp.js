@@ -18,7 +18,7 @@ const PopUp = ({ login }) => {
         // if (sender.url !== "https://my-read-08.herokuapp.com/extension-login")
         if (sender.url !== "http://localhost:3000/extension-login")
         // if (sender.url !== "https://myreaddev-ext-logins-duhpcboow.herokuapp.com/extension-login")
-        //   return;
+          return;
         if (request.openUrlInEditorEmail && request.openUrlInEditorPword)
           // console.log("request: ", request);
           login(request.openUrlInEditorEmail, request.openUrlInEditorPword);
