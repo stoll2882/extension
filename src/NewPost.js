@@ -1,5 +1,5 @@
 /*global chrome*/
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Container, Form, Button, Row, Col} from "react-bootstrap";
 import { addPost } from "./actions/post";
 import { connect } from 'react-redux';
@@ -127,13 +127,15 @@ function NewPost({addPost, addCategory, logout, uploadPostPicture, auth: { user 
 
     // this caused problems for me... someone can un-comment it if it works for you guys
     // get current url of active tab
-    chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
-        let url = tabs[0].url;
-        // use `url` here inside the callback because it's asynchronous!
-        setFormData({
-            url: url
-            })
-    });
+    useEffect(() => {
+        chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+                let url = tabs[0].url;
+                // use `url` here inside the callback because it's asynchronous!
+                setFormData({
+                    url: url
+                    })
+            });
+    }, []);
     
     
     return(

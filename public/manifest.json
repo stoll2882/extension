@@ -18,7 +18,7 @@
     "default_title": "MyRead Chrome Extension"
   },
   "externally_connectable": {
-    "matches": ["https://my-read-08.herokuapp.com/*", "*://localhost/*"]
+    "matches": ["https://my-read-08.herokuapp.com/*", "https://myreaddev-ext-logins-duhpcboow.herokuapp.com/*", "*://localhost/*"]
   },
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl/+ag/DnpDvDmIR/uePAk1UCBWi2r03wvT5MviLk2KaPUFLsDUg1LK5UggHD8CZDq7OmSWpu09W9UkYNo6RqVZDHOKD1LQ9QEF0SkDw1xYoxNZhRcCTJzzc5PNIJPGk6HFe3YVswzcGFcK9z1CX7qJP6SIf9u8DhJahfkuerROeoaXcWCaTKxtptLC08Rn4hACf/jLj31KrhLamQU2je9xyiKF9k1wNlJA0wDAjuMmZXcYf0QOGjz+p6i7Y6rdLwQ4dEVNDgt+ul5dGHTEKr816UNMN9w1FZbfTMGICSFO5ZEPsxmkqgazNR4B7wxjonFf1WfgqPI9b5zCUR4/haGQIDAQAB"
 }

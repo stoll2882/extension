@@ -22,6 +22,7 @@ const PopUp = ({ login }) => {
         if (request.openUrlInEditorEmail && request.openUrlInEditorPword)
           // console.log("request: ", request);
           login(request.openUrlInEditorEmail, request.openUrlInEditorPword);
+          sendResponse({request});
       });
 
   }
