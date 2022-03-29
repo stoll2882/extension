@@ -12,9 +12,14 @@
     "identity",
     "cookies"
   ],
-  "manifest_version": 2,
+  "host_permissions": [
+    "https://my-read-08.herokuapp.com/*",
+    "https://myreaddev-ext-logins-duhpcboow.herokuapp.com/*",
+    "*://localhost/*"
+  ],
+  "manifest_version": 3,
   "version": "0.0.1",
-  "browser_action": {
+  "action": {
     "default_popup": "index.html",
     "default_title": "MyRead Chrome Extension"
   },
