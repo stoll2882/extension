@@ -8,9 +8,7 @@
    "128": "favicon.ico"
   },
   "permissions": [
-    "tabs",
-    "identity",
-    "cookies"
+    "tabs"
   ],
   "host_permissions": [
     "https://my-read-08.herokuapp.com/*",
@@ -25,5 +23,6 @@
   },
   "externally_connectable": {
     "matches": ["https://my-read-08.herokuapp.com/*", "https://myreaddev-ext-logins-duhpcboow.herokuapp.com/*", "*://localhost/*"]
-  }
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxnOLa3yjSiH09QuPg1iAKqSNM9v9oF/LO/LroR5eKWTIDBoal0k5AdCyCCjv3jB5A1rch/ffazWI4i3EK5vL1RZuP8HvqtjlCjX8Iu/5S8iXNrbBcgAJTNO9WiFXfi0HFpFPfI1RNPT07KxFRiAhWWtbHCma7KZQhvDk0YGdJH6PH25UzrkKjXHVWPk0IT7yAUQLvoWkMKgZdL1PvzuxZ+msWTWqbsj7II5y6udgM/mZIK/zkCXb+g6+3eVaAmLCF2FHBKdTspauHgtfWvaYk/Dg9f6u6DXdVHTi6ie/WA6wd6o/GbBro1wd5xkgtWm627kLaGwl1NxSSLIV9DSyJwIDAQAB"
 }
