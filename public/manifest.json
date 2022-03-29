@@ -1,6 +1,7 @@
 {
   "short_name": "MyRead",
   "name": "MyRead Browser Extension",
+  "description": "A browser extension that allows you to login to your MyRead account and truly construct your blog as you go!",
   "icons": {
     "16": "favicon.ico",
     "48": "favicon.ico",
