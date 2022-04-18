@@ -49,6 +49,7 @@ function NewPost({addPost, addCategory, logout, uploadPostPicture, auth: { user 
         return newErrors
     }
 
+    // set if user is validated from MyRead or not
     function validate(){
         const newErrors = findFormErrors();
         if ( Object.keys(newErrors).length > 0 ) {
@@ -66,6 +67,7 @@ function NewPost({addPost, addCategory, logout, uploadPostPicture, auth: { user 
 
     const options = user != undefined && user.categories.length !== 0? user.categories.map(category => ({value: category, label: category})): [];
     
+    // initialize form data to empty strings, changes on user input
     const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -81,6 +83,7 @@ function NewPost({addPost, addCategory, logout, uploadPostPicture, auth: { user 
         setFormData(formData => ({...formData, category: newOption != undefined && newOption.length !== 0 ? newOption[0].value : ""}))
     }
 
+    // upload link and photo data on submission
     async function submit(event){
         event.preventDefault();
         if (validate()){
@@ -118,6 +121,7 @@ function NewPost({addPost, addCategory, logout, uploadPostPicture, auth: { user 
  
     }
 
+    // set photo
     async function onImageChange(e){
         console.log(e.target.files[0])
         const url = URL.createObjectURL(e.target.files[0]);
@@ -125,7 +129,6 @@ function NewPost({addPost, addCategory, logout, uploadPostPicture, auth: { user 
         setPreview(url);
     }
 
-    // this caused problems for me... someone can un-comment it if it works for you guys
     // get current url of active tab
     useEffect(() => {
         chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {

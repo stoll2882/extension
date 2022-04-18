@@ -8,6 +8,8 @@ import "./App.css";
 
 const PopUp = ({ login }) => {
 
+  // commented lines correspond to separate branches on heroku/localhost. must match!
+  // open popup when signing in with google or facebook
   const openPopupHandler = () => {
     // window.open("http://localhost:3000/extension-login","mywindow","menubar=1,resizable=1,width=600,height=350");
     // window.open("https://myreaddev-ext-logins-duhpcboow.herokuapp.com/extension-login","mywindow","menubar=1,resizable=1,width=600,height=350");
@@ -20,7 +22,6 @@ const PopUp = ({ login }) => {
         // if (sender.url !== "https://myreaddev-ext-logins-duhpcboow.herokuapp.com/extension-login")
           return;
         if (request.openUrlInEditorEmail && request.openUrlInEditorPword)
-          // console.log("request: ", request);
           login(request.openUrlInEditorEmail, request.openUrlInEditorPword);
           sendResponse({request});
       });

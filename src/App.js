@@ -39,13 +39,13 @@ function App({addPost, loadUser, setAlert, login, logout, isAuthenticated, auth:
   }
     
 
+  
   const onSubmitLogin = async (e) => {
     e.preventDefault();
-    console.log("email:" + email)
-    console.log("password: " + password)
     await login(email, password);
   };
 
+  // initialize form items, will change when inputted by user
   const [formDataPost, setFormDataPost] = useState({
     title: '',
     description: '',
